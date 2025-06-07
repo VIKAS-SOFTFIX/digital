@@ -50,21 +50,8 @@ const HeroBanner: React.FC = () => {
     }, 3000);
     
     return () => clearInterval(interval);
-  }, []);
+  }, [rotatingTexts.length]);
 
-  const textVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: (custom: number) => ({
-      opacity: 1, 
-      y: 0,
-      transition: { 
-        duration: 1.2,
-        ease: [0.34, 1.56, 0.64, 1],
-        delay: custom * 0.2
-      }
-    })
-  };
-  
   const titleVariants = {
     hidden: { opacity: 0, y: 80 },
     visible: {
