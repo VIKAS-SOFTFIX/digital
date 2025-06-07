@@ -1,7 +1,14 @@
-import type { NextConfig } from "next";
+/**
+ * @type {import('next').NextConfig}
+ */
+const nextConfig = {
+  images: {
+    domains: ['randomuser.me'],
+  },
+  sassOptions: {
 
-const nextConfig: NextConfig = {
-  /* config options here */
+    includePaths: ['./src'],
+  },
 };
 
 export default nextConfig;

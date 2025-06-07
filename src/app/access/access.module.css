@@ -1,0 +1,448 @@
+/* Access Page Styles */
+.accessPage {
+  overflow-x: hidden;
+}
+
+/* Hero Section Styles */
+.accessHero {
+  position: relative;
+  padding: 160px 0 80px;
+  overflow: hidden;
+  background-color: #f9fafc;
+}
+
+.accessHeroContent {
+  position: relative;
+  z-index: 2;
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.breadcrumbs a {
+  color: #6c757d;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.breadcrumbs a:hover {
+  color: #0a5b96;
+}
+
+.breadcrumbs span {
+  color: #0a5b96;
+}
+
+.breadcrumbIcon {
+  margin: 0 8px;
+  font-size: 10px;
+  color: #6c757d;
+}
+
+.accessTitle {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.accessTitle h1 {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 15px;
+  color: #2c3345;
+}
+
+.highlight {
+  color: #0a5b96;
+}
+
+.titleAccent {
+  height: 4px;
+  width: 80px;
+  background: linear-gradient(90deg, #0a5b96, rgba(10, 91, 150, 0.1));
+  border-radius: 2px;
+  margin: 15px auto 0;
+}
+
+.accessHeroBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.heroBgGradient1 {
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(10, 91, 150, 0.08) 0%, rgba(10, 91, 150, 0) 70%);
+}
+
+.heroBgGradient2 {
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(10, 91, 150, 0.06) 0%, rgba(10, 91, 150, 0) 70%);
+}
+
+.heroBgPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%230a5b96' fill-opacity='0.03' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+/* Form Section Styles */
+.accessFormSection {
+  padding: 80px 0 120px;
+  background-color: #fff;
+}
+
+.accessFormWrapper {
+  max-width: 500px;
+  margin: 0 auto 60px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.formTabs {
+  display: flex;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.formTab {
+  flex: 1;
+  padding: 20px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #6c757d;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.formTab:hover {
+  color: #0a5b96;
+}
+
+.activeTab {
+  color: #0a5b96;
+  background-color: rgba(10, 91, 150, 0.05);
+  border-bottom: 2px solid #0a5b96;
+}
+
+.tabIcon {
+  font-size: 16px;
+}
+
+.formContent {
+  padding: 40px;
+}
+
+.loginForm h2,
+.registerForm h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #2c3345;
+  margin-bottom: 10px;
+}
+
+.loginForm p,
+.registerForm p {
+  font-size: 15px;
+  color: #6c757d;
+  margin-bottom: 30px;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #2c3345;
+  font-size: 14px;
+}
+
+.labelWithLink {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.forgotLink {
+  font-size: 13px;
+  color: #0a5b96;
+  text-decoration: none;
+}
+
+.forgotLink:hover {
+  text-decoration: underline;
+}
+
+.inputWithIcon {
+  position: relative;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6c757d;
+  font-size: 16px;
+}
+
+.inputWithIcon input {
+  width: 100%;
+  padding: 14px 16px 14px 45px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.inputWithIcon input:focus {
+  outline: none;
+  border-color: #0a5b96;
+  box-shadow: 0 0 0 3px rgba(10, 91, 150, 0.15);
+}
+
+.formCheckbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  cursor: pointer;
+}
+
+.formCheckbox input {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.formCheckbox label {
+  font-size: 14px;
+  color: #6c757d;
+  cursor: pointer;
+}
+
+.formCheckbox a {
+  color: #0a5b96;
+  text-decoration: none;
+}
+
+.formCheckbox a:hover {
+  text-decoration: underline;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #0a5b96 0%, #4CC9F0 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submitButton:hover {
+  background: linear-gradient(135deg, #064377 0%, #31a8d0 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(10, 91, 150, 0.2);
+}
+
+.buttonIcon {
+  margin-left: 8px;
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.submitButton:hover .buttonIcon {
+  transform: translateX(3px);
+}
+
+.formFooter {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.formFooter p {
+  font-size: 14px;
+  color: #6c757d;
+  margin: 0;
+}
+
+.switchFormLink {
+  background: none;
+  border: none;
+  color: #0a5b96;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.switchFormLink:hover {
+  text-decoration: underline;
+}
+
+/* Features Section */
+.formFeatures {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.featureCard {
+  text-align: center;
+  padding: 30px;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.featureCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.featureIcon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(10, 91, 150, 0.1) 0%, rgba(76, 201, 240, 0.1) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 28px;
+  color: #0a5b96;
+}
+
+.featureCard h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2c3345;
+  margin-bottom: 15px;
+}
+
+.featureCard p {
+  font-size: 14px;
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+  .accessHero {
+    padding: 140px 0 60px;
+  }
+  
+  .accessTitle h1 {
+    font-size: 36px;
+  }
+  
+  .formFeatures {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .featureCard {
+    padding: 25px 15px;
+  }
+  
+  .featureIcon {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
+  
+  .featureCard h3 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 767px) {
+  .accessHero {
+    padding: 120px 0 50px;
+  }
+  
+  .accessTitle h1 {
+    font-size: 32px;
+  }
+  
+  .accessFormSection {
+    padding: 50px 0 80px;
+  }
+  
+  .accessFormWrapper {
+    max-width: 100%;
+  }
+  
+  .formContent {
+    padding: 30px 20px;
+  }
+  
+  .formFeatures {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 575px) {
+  .accessHero {
+    padding: 100px 0 40px;
+  }
+  
+  .accessTitle h1 {
+    font-size: 28px;
+  }
+  
+  .formTabs {
+    flex-direction: column;
+  }
+  
+  .formTab {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  .activeTab {
+    border-bottom: 1px solid #0a5b96;
+  }
+} 

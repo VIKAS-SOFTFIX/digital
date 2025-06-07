@@ -1,0 +1,84 @@
+.logo {
+  font-weight: 700;
+  
+  a {
+    color: #333;
+    display: flex;
+    align-items: center;
+    position: relative;
+    text-decoration: none;
+  }
+  
+  .logo-wrapper {
+    display: flex;
+    align-items: center;
+    
+    .logo-icon-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      margin-right: 10px;
+      color: white;
+      box-shadow: 0 3px 10px rgba(10, 91, 150, 0.2);
+      position: relative;
+    }
+    
+    .logo-icons {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .logo-icon {
+      color: white;
+    }
+    
+    .logo-icon-overlay {
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.8;
+    }
+    
+    .logo-text {
+      font-weight: 700;
+      line-height: 1;
+      
+      .softlabs {
+        font-weight: 400;
+        margin-left: 1px;
+      }
+    }
+  }
+  
+  &.logo-small .logo-wrapper {
+    .logo-icon-wrapper {
+      border-radius: 6px;
+      margin-right: 8px;
+    }
+  }
+  
+  &.logo-large .logo-wrapper {
+    .logo-icon-wrapper {
+      border-radius: 10px;
+      margin-right: 12px;
+    }
+  }
+  
+  &.logo-light .logo-wrapper {
+    .logo-icon-wrapper {
+      box-shadow: 0 3px 15px rgba(255, 255, 255, 0.15);
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .logo.logo-medium .logo-wrapper .logo-text {
+    font-size: 18px;
+  }
+} 

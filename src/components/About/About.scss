@@ -1,0 +1,852 @@
+.about-section {
+  position: relative;
+  padding: 120px 0;
+  overflow: hidden;
+  background-color: #f9fbff;
+  
+  .about-section-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    
+    .bg-gradient-1 {
+      position: absolute;
+      width: 70%;
+      height: 70%;
+      top: -20%;
+      right: -20%;
+      background: radial-gradient(circle, rgba(10, 91, 150, 0.04) 0%, rgba(10, 91, 150, 0) 70%);
+      border-radius: 50%;
+      z-index: 0;
+    }
+    
+    .bg-gradient-2 {
+      position: absolute;
+      width: 80%;
+      height: 80%;
+      bottom: -30%;
+      left: -20%;
+      background: radial-gradient(circle, rgba(10, 91, 150, 0.03) 0%, rgba(10, 91, 150, 0) 70%);
+      border-radius: 50%;
+      z-index: 0;
+    }
+  }
+  
+  .container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 80px;
+    
+    .subtitle {
+      display: inline-block;
+      font-size: 15px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #0a5b96;
+      margin-bottom: 16px;
+      position: relative;
+      padding: 0 10px;
+      
+      &:before {
+        content: '';
+        position: absolute;
+        height: 2px;
+        width: 30px;
+        background: #0a5b96;
+        left: -40px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      
+      &:after {
+        content: '';
+        position: absolute;
+        height: 2px;
+        width: 30px;
+        background: #0a5b96;
+        right: -40px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+    
+    h2 {
+      font-size: 48px;
+      line-height: 1.2;
+      font-weight: 800;
+      margin-bottom: 24px;
+      color: #2c3345;
+      
+      .gradient-text {
+        background: linear-gradient(135deg, #0a5b96 0%, #064377 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+    }
+    
+    .description {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #64748b;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+  }
+  
+  .timeline-container {
+    position: relative;
+    margin-bottom: 100px;
+    padding: 20px 0;
+    
+    .timeline-background {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: rgba(10, 91, 150, 0.1);
+      
+      .timeline-track {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #0a5b96 0%, #064377 100%);
+        transform: translateY(-50%);
+      }
+    }
+    
+    .timeline-milestones {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      
+      .milestone-card {
+        position: relative;
+        width: 200px;
+        background: white;
+        border-radius: 16px;
+        padding: 24px 20px;
+        text-align: center;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(10, 91, 150, 0.08);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        
+        &:before {
+          content: '';
+          position: absolute;
+          width: 2px;
+          height: 20px;
+          background-color: rgba(10, 91, 150, 0.3);
+          bottom: -20px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        
+        &:after {
+          content: '';
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background-color: #0a5b96;
+          bottom: -26px;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 3;
+        }
+        
+        .milestone-icon {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          background: linear-gradient(135deg, rgba(10, 91, 150, 0.1) 0%, rgba(6, 67, 119, 0.1) 100%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto 15px;
+          color: #0a5b96;
+          font-size: 24px;
+        }
+        
+        .milestone-year {
+          font-size: 22px;
+          font-weight: 800;
+          color: #0a5b96;
+          margin-bottom: 10px;
+        }
+        
+        .milestone-title {
+          font-size: 16px;
+          font-weight: 700;
+          color: #2c3345;
+          margin-bottom: 8px;
+        }
+        
+        .milestone-description {
+          font-size: 14px;
+          color: #64748b;
+          line-height: 1.4;
+        }
+        
+        .active-indicator {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          border-radius: 16px;
+          border: 2px solid #0a5b96;
+          pointer-events: none;
+          z-index: 2;
+        }
+        
+        &.active {
+          transform: translateY(-10px) scale(1.03);
+          box-shadow: 0 20px 40px rgba(10, 91, 150, 0.15);
+          background: white;
+          
+          .milestone-icon {
+            background: linear-gradient(135deg, #0a5b96 0%, #064377 100%);
+            color: white;
+            box-shadow: 0 10px 20px rgba(10, 91, 150, 0.2);
+          }
+          
+          &:after {
+            background-color: #0a5b96;
+            box-shadow: 0 0 0 4px rgba(10, 91, 150, 0.2);
+          }
+        }
+        
+        &:hover:not(.active) {
+          transform: translateY(-5px);
+          box-shadow: 0 15px 30px rgba(10, 91, 150, 0.1);
+        }
+      }
+    }
+  }
+  
+  .about-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    .about-text {
+      flex: 1;
+      
+      .about-text-inner {
+        padding-right: 30px;
+        
+        h3 {
+          font-size: 36px;
+          line-height: 1.3;
+          font-weight: 800;
+          margin-bottom: 24px;
+          color: #2c3345;
+          
+          .highlight {
+            color: #0a5b96;
+            position: relative;
+            
+            &:after {
+              content: '';
+              position: absolute;
+              width: 100%;
+              height: 6px;
+              background: rgba(10, 91, 150, 0.1);
+              left: 0;
+              bottom: 0;
+              z-index: -1;
+            }
+          }
+        }
+        
+        p {
+          font-size: 16px;
+          line-height: 1.7;
+          color: #64748b;
+          margin-bottom: 30px;
+        }
+        
+        .achievement-list {
+          margin-bottom: 40px;
+          
+          .achievement-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(10, 91, 150, 0.05);
+            transition: all 0.3s ease;
+            
+            &:hover {
+              transform: translateY(-3px);
+              box-shadow: 0 15px 35px rgba(10, 91, 150, 0.08);
+              border-color: rgba(10, 91, 150, 0.1);
+            }
+            
+            .check-icon {
+              color: #0a5b96;
+              font-size: 18px;
+              margin-right: 16px;
+              flex-shrink: 0;
+              margin-top: 3px;
+            }
+            
+            span {
+              font-size: 16px;
+              font-weight: 500;
+              color: #64748b;
+              line-height: 1.6;
+              
+              strong {
+                display: block;
+                color: #2c3345;
+                font-weight: 700;
+                margin-bottom: 4px;
+                font-size: 17px;
+              }
+            }
+          }
+        }
+        
+        .btn-discover {
+          display: inline-flex;
+          align-items: center;
+          padding: 14px 28px;
+          background: linear-gradient(135deg, #0a5b96 0%, #064377 100%);
+          color: white;
+          font-weight: 600;
+          border-radius: 8px;
+          box-shadow: 0 10px 20px rgba(10, 91, 150, 0.2);
+          transition: all 0.3s ease;
+          
+          span {
+            margin-right: 10px;
+          }
+          
+          svg {
+            transition: transform 0.3s ease;
+          }
+          
+          &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(10, 91, 150, 0.3);
+            
+            svg {
+              transform: translateX(5px);
+            }
+          }
+        }
+      }
+    }
+    
+    .about-media {
+      flex: 1;
+      
+      .image-grid {
+        position: relative;
+        height: 560px;
+        
+        .image-main {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 80%;
+          
+          .image-wrapper {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(10, 91, 150, 0.12);
+            transition: all 0.4s ease;
+            
+            .placeholder-image {
+              height: 320px;
+              background: linear-gradient(135deg, rgba(10, 91, 150, 0.9) 0%, rgba(6, 67, 119, 0.9) 100%);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: rgba(255, 255, 255, 0.9);
+              font-size: 22px;
+              font-weight: 600;
+              position: relative;
+              overflow: hidden;
+              
+              &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: url('/images/pattern-dot.png') repeat;
+                opacity: 0.1;
+                z-index: 1;
+              }
+              
+              span {
+                position: relative;
+                z-index: 2;
+                display: flex;
+                align-items: center;
+                
+                &:before {
+                  content: '●';
+                  font-size: 10px;
+                  margin-right: 10px;
+                  color: rgba(255, 255, 255, 0.7);
+                }
+                
+                &:after {
+                  content: '●';
+                  font-size: 10px;
+                  margin-left: 10px;
+                  color: rgba(255, 255, 255, 0.7);
+                }
+              }
+            }
+            
+            .image-overlay {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: rgba(10, 91, 150, 0.85);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              backdrop-filter: blur(4px);
+              
+              span {
+                color: white;
+                font-size: 24px;
+                font-weight: 700;
+                padding: 12px 25px;
+                border: 2px solid rgba(255, 255, 255, 0.3);
+                border-radius: 50px;
+              }
+            }
+          }
+        }
+        
+        .image-secondary-container {
+          display: flex;
+          position: absolute;
+          left: 0;
+          bottom: 60px;
+          width: 75%;
+          gap: 24px;
+          
+          .image-secondary {
+            flex: 1;
+            
+            .image-wrapper {
+              position: relative;
+              border-radius: 20px;
+              overflow: hidden;
+              box-shadow: 0 15px 30px rgba(10, 91, 150, 0.1);
+              transition: all 0.4s ease;
+              
+              .placeholder-image {
+                height: 180px;
+                background: linear-gradient(135deg, rgba(10, 91, 150, 0.85) 0%, rgba(6, 67, 119, 0.85) 100%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: rgba(255, 255, 255, 0.9);
+                font-size: 18px;
+                font-weight: 600;
+                position: relative;
+                overflow: hidden;
+                
+                &:before {
+                  content: '';
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background: url('/images/pattern-dot.png') repeat;
+                  opacity: 0.1;
+                  z-index: 1;
+                }
+                
+                span {
+                  position: relative;
+                  z-index: 2;
+                }
+              }
+              
+              .image-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(10, 91, 150, 0.85);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                backdrop-filter: blur(4px);
+                
+                span {
+                  color: white;
+                  font-size: 18px;
+                  font-weight: 700;
+                  padding: 8px 16px;
+                  border: 2px solid rgba(255, 255, 255, 0.3);
+                  border-radius: 50px;
+                }
+              }
+            }
+          }
+        }
+        
+        .experience-badge {
+          position: absolute;
+          bottom: 20px;
+          right: 40px;
+          width: 130px;
+          height: 130px;
+          background: white;
+          border-radius: 50%;
+          box-shadow: 0 15px 40px rgba(10, 91, 150, 0.2);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 3px solid #0a5b96;
+          z-index: 3;
+          
+          &:before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            right: 6px;
+            bottom: 6px;
+            border: 1px dashed rgba(10, 91, 150, 0.3);
+            border-radius: 50%;
+          }
+          
+          .badge-content {
+            text-align: center;
+            
+            .years {
+              display: block;
+              font-size: 32px;
+              font-weight: 800;
+              color: #0a5b96;
+              line-height: 1;
+              margin-bottom: 5px;
+            }
+            
+            .text {
+              display: block;
+              font-size: 13px;
+              font-weight: 600;
+              color: #64748b;
+              line-height: 1.3;
+              max-width: 90px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive styles
+@media (max-width: 1199px) {
+  .about-section {
+    .timeline-container {
+      .timeline-milestones {
+        .milestone-card {
+          width: 180px;
+          padding: 20px 16px;
+          
+          .milestone-icon {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+          }
+          
+          .milestone-year {
+            font-size: 20px;
+          }
+          
+          .milestone-title {
+            font-size: 15px;
+          }
+          
+          .milestone-description {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+    
+    .about-content {
+      .about-text {
+        .about-text-inner {
+          h3 {
+            font-size: 32px;
+          }
+        }
+      }
+      
+      .about-media {
+        .image-grid {
+          height: 550px;
+          
+          .image-main {
+            .image-wrapper {
+              .placeholder-image {
+                height: 280px;
+              }
+            }
+          }
+          
+          .image-secondary-container {
+            .image-secondary {
+              .image-wrapper {
+                .placeholder-image {
+                  height: 160px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .about-section {
+    padding: 100px 0;
+    
+    .section-header {
+      margin-bottom: 60px;
+      
+      h2 {
+        font-size: 40px;
+      }
+      
+      .description {
+        font-size: 16px;
+      }
+    }
+    
+    .timeline-container {
+      overflow-x: auto;
+      padding-bottom: 40px;
+      
+      .timeline-milestones {
+        width: 900px;
+        padding: 0 20px;
+      }
+    }
+    
+    .about-content {
+      flex-direction: column;
+      gap: 60px;
+      
+      .about-text {
+        .about-text-inner {
+          padding-right: 0;
+        }
+      }
+      
+      .about-media {
+        .image-grid {
+          height: 520px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .about-section {
+    padding: 80px 0;
+    
+    .section-header {
+      h2 {
+        font-size: 32px;
+      }
+    }
+    
+    .about-content {
+      .about-text {
+        .about-text-inner {
+          .achievement-list {
+            .achievement-item {
+              padding: 16px;
+              
+              span {
+                font-size: 15px;
+                
+                strong {
+                  font-size: 16px;
+                }
+              }
+            }
+          }
+        }
+      }
+      
+      .about-media {
+        .image-grid {
+          height: 450px;
+          
+          .image-main {
+            width: 100%;
+            
+            .image-wrapper {
+              .placeholder-image {
+                height: 220px;
+                font-size: 20px;
+              }
+            }
+          }
+          
+          .image-secondary-container {
+            width: 100%;
+            bottom: 60px;
+            gap: 15px;
+          }
+          
+          .experience-badge {
+            right: 20px;
+            bottom: 10px;
+            width: 110px;
+            height: 110px;
+            
+            .badge-content {
+              .years {
+                font-size: 28px;
+              }
+              
+              .text {
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .about-section {
+    padding: 60px 0;
+    
+    .section-header {
+      h2 {
+        font-size: 28px;
+      }
+      
+      .subtitle {
+        font-size: 13px;
+        
+        &:before, &:after {
+          width: 20px;
+          left: -25px;
+        }
+        
+        &:after {
+          right: -25px;
+        }
+      }
+    }
+    
+    .about-content {
+      .about-media {
+        .image-grid {
+          height: 420px;
+          
+          .image-main {
+            .image-wrapper {
+              .placeholder-image {
+                height: 200px;
+                
+                span {
+                  font-size: 18px;
+                }
+              }
+              
+              .image-overlay {
+                span {
+                  font-size: 20px;
+                  padding: 8px 16px;
+                }
+              }
+            }
+          }
+          
+          .image-secondary-container {
+            flex-direction: column;
+            bottom: 50px;
+            gap: 12px;
+            
+            .image-secondary {
+              .image-wrapper {
+                .placeholder-image {
+                  height: 100px;
+                  font-size: 16px;
+                }
+                
+                .image-overlay {
+                  span {
+                    font-size: 16px;
+                    padding: 6px 12px;
+                  }
+                }
+              }
+            }
+          }
+          
+          .experience-badge {
+            width: 90px;
+            height: 90px;
+            
+            .badge-content {
+              .years {
+                font-size: 24px;
+              }
+              
+              .text {
+                font-size: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+} 
