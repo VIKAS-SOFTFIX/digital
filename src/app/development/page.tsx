@@ -24,7 +24,7 @@ const DevelopmentPage = () => {
   
   return (
     <>
-      <Header />
+      <Header isTransparent={false} />
       <main className={styles.developmentPage}>
         <div className={styles.developmentBackground}>
           <div className={styles.bgGradient1}></div>

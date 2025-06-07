@@ -1,0 +1,11 @@
+--2025-06-08 01:31:35--  https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format
+Resolving images.unsplash.com (images.unsplash.com)... 2a04:4e42:42::720, 199.232.22.208
+Connecting to images.unsplash.com (images.unsplash.com)|2a04:4e42:42::720|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1247886 (1.2M) [image/jpeg]
+Saving to: ‘testimonial-3.jpg’
+
+testimonial-3.jpg         0%[                               ]       0  --.-KB/s               testimonial-3.jpg        36%[==========>                    ] 441.81K  2.12MB/s               testimonial-3.jpg       100%[==============================>]   1.19M  3.15MB/s    in 0.4s    
+
+2025-06-08 01:31:36 (3.15 MB/s) - ‘testimonial-3.jpg’ saved [1247886/1247886]
+

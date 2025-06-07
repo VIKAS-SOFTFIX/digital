@@ -1,0 +1,11 @@
+--2025-06-08 01:21:01--  https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80
+Resolving images.unsplash.com (images.unsplash.com)... 2a04:4e42:42::720, 199.232.22.208
+Connecting to images.unsplash.com (images.unsplash.com)|2a04:4e42:42::720|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 9758955 (9.3M) [image/jpeg]
+Saving to: ‘public/images/industries/industries-banner.jpg’
+
+            public/imag   0%[                               ]       0  --.-KB/s                          public/image   4%[>                              ] 454.30K  2.16MB/s                         public/images  10%[==>                            ]   1014K  2.44MB/s                        public/images/  19%[====>                          ]   1.79M  2.94MB/s                       public/images/i  29%[========>                      ]   2.72M  3.36MB/s                      public/images/in  41%[===========>                   ]   3.87M  3.81MB/s                     public/images/ind  56%[================>              ]   5.29M  4.35MB/s                    public/images/indu  75%[======================>        ]   7.02M  4.94MB/s                   public/images/indus  98%[=============================> ]   9.19M  5.67MB/s               public/images/industrie 100%[==============================>]   9.31M  5.66MB/s    in 1.6s    
+
+2025-06-08 01:21:02 (5.66 MB/s) - ‘public/images/industries/industries-banner.jpg’ saved [9758955/9758955]
+

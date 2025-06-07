@@ -42,7 +42,7 @@ const AccessPage = () => {
   
   return (
     <>
-      <Header />
+      <Header isTransparent={false} />
       <main className={styles.accessPage}>
         {/* Access Hero Header */}
         <section className={styles.accessHero}>

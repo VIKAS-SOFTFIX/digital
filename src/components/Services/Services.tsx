@@ -170,6 +170,7 @@ const Services: React.FC = () => {
 
   return (
     <section 
+      id="services"
       className="services-section section-padding" 
       onMouseMove={handleMouseMove}
     >

@@ -394,29 +394,110 @@
   }
 }
 
-// Professional scroll indicator
-.scroll-indicator {
-  position: absolute;
-  bottom: 100px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  letter-spacing: 2px;
+// Add new explore section styles
+.explore-section {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 25px 0;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.8));
   z-index: 10;
-  opacity: 1;
-  animation: float 10s ease-in-out infinite;
   
-  &:hover {
-    opacity: 1;
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
   }
   
-  .scroll-icon {
-    animation: smoothBounce 3s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  .explore-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    
+    .explore-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #0a5b96 0%, #4CC9F0 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 20px;
+      box-shadow: 0 10px 20px rgba(10, 91, 150, 0.3);
+      
+      svg {
+        color: white;
+        font-size: 24px;
+      }
+    }
+    
+    .explore-text {
+      flex: 1;
+      
+      h2 {
+        font-size: 24px;
+        font-weight: 700;
+        color: white;
+        margin: 0 0 5px 0;
+      }
+      
+      p {
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.8);
+        margin: 0;
+      }
+    }
+    
+    .explore-arrow {
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+      margin-left: 20px;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background: #0a5b96;
+        transform: translateY(-5px);
+      }
+      
+      svg {
+        animation: smoothBounce 3s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .explore-content {
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+      
+      .explore-icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+      
+      .explore-text {
+        margin-bottom: 15px;
+      }
+      
+      .explore-arrow {
+        margin-left: 0;
+      }
+    }
   }
 }
 
@@ -504,9 +585,5 @@
         padding-top: 80px;
       }
     }
-  }
-  
-  .scroll-indicator {
-    bottom: 90px;
   }
 } 

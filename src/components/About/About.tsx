@@ -224,9 +224,11 @@ const About: React.FC = () => {
                 onHoverEnd={() => setIsHoveringImage(null)}
               >
                 <div className="image-wrapper">
-                  <div className="placeholder-image">
-                    <span>Team Collaboration</span>
-                  </div>
+                  <img 
+                    src="/images/home/leadership-team.jpg" 
+                    alt="Leadership Team" 
+                    className="real-image"
+                  />
                   <AnimatePresence>
                     {isHoveringImage === 0 && (
                       <motion.div 
@@ -255,9 +257,11 @@ const About: React.FC = () => {
                   onHoverEnd={() => setIsHoveringImage(null)}
                 >
                   <div className="image-wrapper">
-                    <div className="placeholder-image">
-                      <span>Expert Team</span>
-                    </div>
+                    <img 
+                      src="/images/home/global-expertise.jpg" 
+                      alt="Global Expertise" 
+                      className="real-image"
+                    />
                     <AnimatePresence>
                       {isHoveringImage === 1 && (
                         <motion.div 
@@ -285,9 +289,11 @@ const About: React.FC = () => {
                   onHoverEnd={() => setIsHoveringImage(null)}
                 >
                   <div className="image-wrapper">
-                    <div className="placeholder-image">
-                      <span>Excellence</span>
-                    </div>
+                    <img 
+                      src="/images/home/corporate-excellence.jpg" 
+                      alt="Corporate Excellence" 
+                      className="real-image"
+                    />
                     <AnimatePresence>
                       {isHoveringImage === 2 && (
                         <motion.div 
@@ -312,6 +318,11 @@ const About: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.5 }}
                 whileHover={{ scale: 1.05, rotate: 2 }}
+                style={{ 
+                  backgroundImage: 'url("/images/home/experience-badge.jpg")',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
               >
                 <div className="badge-content">
                   <span className="years">20+</span>

@@ -1,0 +1,107 @@
+.insight-filter {
+  margin-bottom: 40px;
+  
+  .filter-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    
+    @media (max-width: 991px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  
+  .filter-search {
+    flex: 0 0 320px;
+    
+    @media (max-width: 991px) {
+      width: 100%;
+      flex: auto;
+    }
+    
+    .search-box {
+      position: relative;
+      
+      .search-icon {
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--body-color);
+        font-size: 16px;
+      }
+      
+      input {
+        width: 100%;
+        padding: 14px 14px 14px 44px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        font-size: 15px;
+        transition: var(--transition);
+        
+        &:focus {
+          outline: none;
+          border-color: var(--primary-color);
+          box-shadow: 0 0 0 3px rgba(10, 91, 150, 0.1);
+        }
+        
+        &::placeholder {
+          color: var(--body-color);
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+  
+  .filter-categories {
+    flex: 1;
+    
+    @media (max-width: 991px) {
+      width: 100%;
+      overflow-x: auto;
+    }
+    
+    ul {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      
+      @media (max-width: 991px) {
+        width: max-content;
+      }
+      
+      li {
+        position: relative;
+        padding: 10px 25px;
+        font-weight: 500;
+        color: var(--body-color);
+        cursor: pointer;
+        transition: var(--transition);
+        white-space: nowrap;
+        
+        &:hover {
+          color: var(--primary-color);
+        }
+        
+        &.active {
+          color: var(--primary-color);
+          font-weight: 600;
+        }
+        
+        .active-indicator {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 25px;
+          height: 3px;
+          background: var(--primary-color);
+          border-radius: 3px;
+        }
+      }
+    }
+  }
+} 

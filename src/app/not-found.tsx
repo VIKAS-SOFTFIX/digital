@@ -11,7 +11,7 @@ import styles from './not-found.module.css';
 export default function NotFound() {
   return (
     <>
-      <Header />
+      <Header isTransparent={false} />
       <main className={styles.notFoundPage}>
         <div className={styles.notFoundBackground}>
           <div className={styles.bgGradient1}></div>

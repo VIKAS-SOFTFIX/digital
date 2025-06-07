@@ -4,6 +4,12 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary-color: #0a5b96;
+  --primary-color-light: #4CC9F0;
+  --primary-color-dark: #08426b;
+  --secondary-color: #2c3345;
+  --light-bg: #f9fafc;
+  --text-light: #6c757d;
 }
 
 @media (prefers-color-scheme: dark) {

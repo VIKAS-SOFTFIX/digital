@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaArrowRight, FaChevronDown } from 'react-icons/fa';
+import { FaArrowRight, FaChevronDown, FaCompass } from 'react-icons/fa';
 import './HeroBanner.scss';
 
 const HeroBanner: React.FC = () => {
@@ -253,12 +253,30 @@ const HeroBanner: React.FC = () => {
             </div>
           </div>
         </div>
-        
-        <div className="scroll-indicator">
-          <span>EXPLORE</span>
-          <FaChevronDown className="scroll-icon" />
-        </div>
       </div>
+      
+      {/* Redesigned Explore Section - Now at the bottom of the page */}
+      <motion.div 
+        className="explore-section"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 1.5 }}
+      >
+        <div className="container">
+          <div className="explore-content">
+            <div className="explore-icon">
+              <FaCompass />
+            </div>
+            <div className="explore-text">
+              <h2>Explore Our Services</h2>
+              <p>Discover how our solutions can transform your business</p>
+            </div>
+            <Link href="#services" className="explore-arrow">
+              <FaChevronDown />
+            </Link>
+          </div>
+        </div>
+      </motion.div>
     </section>
   );
 };

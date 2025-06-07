@@ -21,17 +21,28 @@ import {
   FaPaintBrush,
   FaCogs,
   FaClipboardCheck,
-  FaComments
+  FaComments,
+  FaUsers,
+  FaHandshake,
+  FaServer
 } from 'react-icons/fa';
 import Logo from '@/components/Logo/Logo';
 import './Header.scss';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  isTransparent?: boolean;
+}
+
+const Header: React.FC<HeaderProps> = ({ isTransparent = false }) => {
   const pathname = usePathname();
   const [isSticky, setIsSticky] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState('development');
+  
+  // Determine if header should be transparent based on pathname
+  const shouldBeTransparent = pathname === '/' || isTransparent;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -129,7 +140,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className={`header ${isSticky ? 'sticky' : ''}`}>
+    <header className={`header ${isSticky ? 'sticky' : ''} ${shouldBeTransparent ? 'transparent' : 'solid'}`}>
       <div className="header-background">
         <div className="header-pattern"></div>
         <div className="header-gradient"></div>
@@ -202,16 +213,8 @@ const Header: React.FC = () => {
                           animate="visible"
                           exit="hidden"
                         >
-                          <li>
-                            <Link 
-                              href="/development"
-                              onClick={closeMobileMenu}
-                            >
-                              <FaChevronRight className="list-icon" />
-                              Software Development
-                            </Link>
-                          </li>
-                          <li>
+                          <li className="submenu-section">
+                            <span className="section-title">Development</span>
                             <Link 
                               href="/development"
                               onClick={closeMobileMenu}
@@ -227,35 +230,56 @@ const Header: React.FC = () => {
                             >
                               <FaChevronRight className="list-icon" />
                               Web Application Development
-                    </Link>
+                            </Link>
                           </li>
-                      <li>
+                          <li>
                             <Link 
                               href="/development"
                               onClick={closeMobileMenu}
                             >
-                          <FaChevronRight className="list-icon" />
+                              <FaChevronRight className="list-icon" />
                               Mobile App Development
-                        </Link>
-                      </li>
-                      <li>
+                            </Link>
+                          </li>
+                          
+                          <li className="submenu-section">
+                            <span className="section-title">Staff Solutions</span>
                             <Link 
-                              href="/development"
+                              href="/it-augmentation"
                               onClick={closeMobileMenu}
                             >
-                          <FaChevronRight className="list-icon" />
-                              UX/UI Design
-                        </Link>
-                      </li>
-                      <li>
+                              <FaChevronRight className="list-icon" />
+                              IT Staff Augmentation
+                            </Link>
+                          </li>
+                          <li>
+                            <Link 
+                              href="/outsourcing"
+                              onClick={closeMobileMenu}
+                            >
+                              <FaChevronRight className="list-icon" />
+                              IT Outsourcing
+                            </Link>
+                          </li>
+                          <li>
+                            <Link 
+                              href="/partnerships"
+                              onClick={closeMobileMenu}
+                            >
+                              <FaChevronRight className="list-icon" />
+                              Strategic IT Partnerships
+                            </Link>
+                          </li>
+                          <li>
                             <Link 
                               href="/contact"
                               onClick={closeMobileMenu}
+                              className="highlight-link"
                             >
-                          <FaChevronRight className="list-icon" />
-                              Let's talk
-                        </Link>
-                      </li>
+                              <FaChevronRight className="list-icon" />
+                              Need a custom solution?
+                            </Link>
+                          </li>
                         </motion.ul>
                       )}
                     </AnimatePresence>
@@ -348,224 +372,352 @@ const Header: React.FC = () => {
                         exit="hidden"
                       >
                         <div className="dropdown-inner">
-                          <div className="dropdown-group">
-                            <h4>Software Development</h4>
-                            <ul>
-                              <li>
-                                <Link 
-                                  href="/development"
-                                  onClick={() => setActiveDropdown(null)}
-                                >
-                                  <span className="dropdown-icon-wrapper">
-                                    <FaCode />
-                                  </span>
-                                  <div className="dropdown-content">
-                                    <span className="dropdown-title">Custom Software Development</span>
-                                    <span className="dropdown-description">Tailored software solutions</span>
+                          <div className="dropdown-tabs">
+                            <div className="tabs-navigation">
+                              <button 
+                                className={`tab-button ${activeTab === 'development' ? 'active' : ''}`}
+                                onClick={() => setActiveTab('development')}
+                              >
+                                <FaCode className="tab-icon" />
+                                <span>Development</span>
+                              </button>
+                              <button 
+                                className={`tab-button ${activeTab === 'applications' ? 'active' : ''}`}
+                                onClick={() => setActiveTab('applications')}
+                              >
+                                <FaDesktop className="tab-icon" />
+                                <span>Applications</span>
+                              </button>
+                              <button 
+                                className={`tab-button ${activeTab === 'specialized' ? 'active' : ''}`}
+                                onClick={() => setActiveTab('specialized')}
+                              >
+                                <FaRobot className="tab-icon" />
+                                <span>Specialized</span>
+                              </button>
+                              <button 
+                                className={`tab-button ${activeTab === 'services' ? 'active' : ''}`}
+                                onClick={() => setActiveTab('services')}
+                              >
+                                <FaServer className="tab-icon" />
+                                <span>IT Services</span>
+                              </button>
+                              <button 
+                                className={`tab-button ${activeTab === 'staff' ? 'active' : ''}`}
+                                onClick={() => setActiveTab('staff')}
+                              >
+                                <FaUsers className="tab-icon" />
+                                <span>Staff Solutions</span>
+                              </button>
+                            </div>
+                            
+                            <div className="tabs-content">
+                              {activeTab === 'development' && (
+                                <div className="tab-pane">
+                                  <div className="dropdown-group">
+                                    <h4>Software Development</h4>
+                                    <ul>
+                                      <li>
+                                        <Link 
+                                          href="/development"
+                                          onClick={() => setActiveDropdown(null)}
+                                        >
+                                          <span className="dropdown-icon-wrapper">
+                                            <FaCode />
+                                          </span>
+                                          <div className="dropdown-content">
+                                            <span className="dropdown-title">Custom Software Development</span>
+                                            <span className="dropdown-description">Tailored software solutions</span>
+                                          </div>
+                                        </Link>
+                                      </li>
+                                      <li>
+                                        <Link 
+                                          href="/development"
+                                          onClick={() => setActiveDropdown(null)}
+                                        >
+                                          <span className="dropdown-icon-wrapper">
+                                            <FaDesktop />
+                                          </span>
+                                          <div className="dropdown-content">
+                                            <span className="dropdown-title">Web Application Development</span>
+                                            <span className="dropdown-description">Custom web applications</span>
+                                          </div>
+                                        </Link>
+                                      </li>
+                                      <li>
+                                        <Link 
+                                          href="/development"
+                                          onClick={() => setActiveDropdown(null)}
+                                        >
+                                          <span className="dropdown-icon-wrapper">
+                                            <FaCloud />
+                                          </span>
+                                          <div className="dropdown-content">
+                                            <span className="dropdown-title">SaaS Product Development</span>
+                                            <span className="dropdown-description">Cloud-based software services</span>
+                                          </div>
+                                        </Link>
+                                      </li>
+                                    </ul>
                                   </div>
-                                </Link>
-                              </li>
-                              <li>
-                                <Link 
-                                  href="/development"
-                                  onClick={() => setActiveDropdown(null)}
-                                >
-                                  <span className="dropdown-icon-wrapper">
-                                    <FaDesktop />
-                                  </span>
-                                  <div className="dropdown-content">
-                                    <span className="dropdown-title">Web Application Development</span>
-                                    <span className="dropdown-description">Custom web applications</span>
+                                </div>
+                              )}
+                              
+                              {activeTab === 'applications' && (
+                                <div className="tab-pane">
+                                  <div className="dropdown-group">
+                                    <h4>Application Development</h4>
+                                    <ul>
+                                      <li>
+                                        <Link 
+                                          href="/development"
+                                          onClick={() => setActiveDropdown(null)}
+                                        >
+                                          <span className="dropdown-icon-wrapper">
+                                            <FaDesktop />
+                                          </span>
+                                          <div className="dropdown-content">
+                                            <span className="dropdown-title">Web Application</span>
+                                            <span className="dropdown-description">Dynamic web solutions</span>
+                                          </div>
+                                        </Link>
+                                      </li>
+                                      <li>
+                                        <Link 
+                                          href="/development"
+                                          onClick={() => setActiveDropdown(null)}
+                                        >
+                                          <span className="dropdown-icon-wrapper">
+                                            <FaRegLightbulb />
+                                          </span>
+                                          <div className="dropdown-content">
+                                            <span className="dropdown-title">Custom Application</span>
+                                            <span className="dropdown-description">Bespoke application solutions</span>
+                                          </div>
+                                        </Link>
+                                      </li>
+                                      <li>
+                                        <Link 
+                                          href="/development"
+                                          onClick={() => setActiveDropdown(null)}
+                                        >
+                                          <span className="dropdown-icon-wrapper">
+                                            <FaDatabase />
+                                          </span>
+                                          <div className="dropdown-content">
+                                            <span className="dropdown-title">Application Integration</span>
+                                            <span className="dropdown-description">Seamless system connections</span>
+                                          </div>
+                                        </Link>
+                                      </li>
+                                      <li>
+                                        <Link 
+                                          href="/development"
+                                          onClick={() => setActiveDropdown(null)}
+                                        >
+                                          <span className="dropdown-icon-wrapper">
+                                            <FaCloud />
+                                          </span>
+                                          <div className="dropdown-content">
+                                            <span className="dropdown-title">Ecommerce Application</span>
+                                            <span className="dropdown-description">Online shopping solutions</span>
+                                          </div>
+                                        </Link>
+                                      </li>
+                                    </ul>
                                   </div>
-                                </Link>
-                              </li>
-                              <li>
-                                <Link 
-                                  href="/development"
-                                  onClick={() => setActiveDropdown(null)}
-                                >
-                                  <span className="dropdown-icon-wrapper">
-                                    <FaCloud />
-                                  </span>
-                                  <div className="dropdown-content">
-                                    <span className="dropdown-title">SaaS Product Development</span>
-                                    <span className="dropdown-description">Cloud-based software services</span>
+                                </div>
+                              )}
+                              
+                              {activeTab === 'specialized' && (
+                                <div className="tab-pane">
+                                  <div className="dropdown-group">
+                                    <h4>Specialized Development</h4>
+                                    <ul>
+                                      <li>
+                                        <Link 
+                                          href="/development"
+                                          onClick={() => setActiveDropdown(null)}
+                                        >
+                                          <span className="dropdown-icon-wrapper">
+                                            <FaMobileAlt />
+                                          </span>
+                                          <div className="dropdown-content">
+                                            <span className="dropdown-title">Mobile App Development</span>
+                                            <span className="dropdown-description">iOS and Android solutions</span>
+                                          </div>
+                                        </Link>
+                                      </li>
+                                      <li>
+                                        <Link 
+                                          href="/development"
+                                          onClick={() => setActiveDropdown(null)}
+                                        >
+                                          <span className="dropdown-icon-wrapper">
+                                            <FaCode />
+                                          </span>
+                                          <div className="dropdown-content">
+                                            <span className="dropdown-title">Full Stack Development</span>
+                                            <span className="dropdown-description">End-to-end development</span>
+                                          </div>
+                                        </Link>
+                                      </li>
+                                      <li>
+                                        <Link 
+                                          href="/development"
+                                          onClick={() => setActiveDropdown(null)}
+                                        >
+                                          <span className="dropdown-icon-wrapper">
+                                            <FaRobot />
+                                          </span>
+                                          <div className="dropdown-content">
+                                            <span className="dropdown-title">Artificial Intelligence</span>
+                                            <span className="dropdown-description">Smart AI-powered solutions</span>
+                                          </div>
+                                        </Link>
+                                      </li>
+                                    </ul>
                                   </div>
-                                </Link>
-                              </li>
-                            </ul>
+                                </div>
+                              )}
+                              
+                              {activeTab === 'services' && (
+                                <div className="tab-pane">
+                                  <div className="dropdown-group">
+                                    <h4>IT Services</h4>
+                                    <ul>
+                                      <li>
+                                        <Link 
+                                          href="/development"
+                                          onClick={() => setActiveDropdown(null)}
+                                        >
+                                          <span className="dropdown-icon-wrapper">
+                                            <FaPaintBrush />
+                                          </span>
+                                          <div className="dropdown-content">
+                                            <span className="dropdown-title">UX/UI Design</span>
+                                            <span className="dropdown-description">User-centered design</span>
+                                          </div>
+                                        </Link>
+                                      </li>
+                                      <li>
+                                        <Link 
+                                          href="/development"
+                                          onClick={() => setActiveDropdown(null)}
+                                        >
+                                          <span className="dropdown-icon-wrapper">
+                                            <FaCogs />
+                                          </span>
+                                          <div className="dropdown-content">
+                                            <span className="dropdown-title">DevOps</span>
+                                            <span className="dropdown-description">Continuous integration/delivery</span>
+                                          </div>
+                                        </Link>
+                                      </li>
+                                      <li>
+                                        <Link 
+                                          href="/development"
+                                          onClick={() => setActiveDropdown(null)}
+                                        >
+                                          <span className="dropdown-icon-wrapper">
+                                            <FaClipboardCheck />
+                                          </span>
+                                          <div className="dropdown-content">
+                                            <span className="dropdown-title">QA and Testing</span>
+                                            <span className="dropdown-description">Quality assurance services</span>
+                                          </div>
+                                        </Link>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              )}
+                              
+                              {activeTab === 'staff' && (
+                                <div className="tab-pane">
+                                  <div className="dropdown-group">
+                                    <h4>Staff Solutions</h4>
+                                    <ul>
+                                      <li>
+                                        <Link 
+                                          href="/it-augmentation"
+                                          onClick={() => setActiveDropdown(null)}
+                                        >
+                                          <span className="dropdown-icon-wrapper highlight-icon">
+                                            <FaUsers />
+                                          </span>
+                                          <div className="dropdown-content">
+                                            <span className="dropdown-title">IT Staff Augmentation</span>
+                                            <span className="dropdown-description">Extend your team with skilled professionals</span>
+                                          </div>
+                                        </Link>
+                                      </li>
+                                      <li>
+                                        <Link 
+                                          href="/outsourcing"
+                                          onClick={() => setActiveDropdown(null)}
+                                        >
+                                          <span className="dropdown-icon-wrapper highlight-icon">
+                                            <FaGlobe />
+                                          </span>
+                                          <div className="dropdown-content">
+                                            <span className="dropdown-title">IT Outsourcing</span>
+                                            <span className="dropdown-description">Comprehensive outsourced IT services</span>
+                                          </div>
+                                        </Link>
+                                      </li>
+                                      <li>
+                                        <Link 
+                                          href="/partnerships"
+                                          onClick={() => setActiveDropdown(null)}
+                                        >
+                                          <span className="dropdown-icon-wrapper">
+                                            <FaHandshake />
+                                          </span>
+                                          <div className="dropdown-content">
+                                            <span className="dropdown-title">Strategic IT Partnerships</span>
+                                            <span className="dropdown-description">Long-term technology partnerships</span>
+                                          </div>
+                                        </Link>
+                                      </li>
+                                      <li>
+                                        <Link 
+                                          href="/managed-services"
+                                          onClick={() => setActiveDropdown(null)}
+                                        >
+                                          <span className="dropdown-icon-wrapper">
+                                            <FaServer />
+                                          </span>
+                                          <div className="dropdown-content">
+                                            <span className="dropdown-title">Managed IT Services</span>
+                                            <span className="dropdown-description">End-to-end IT management solutions</span>
+                                          </div>
+                                        </Link>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              )}
+                            </div>
                           </div>
                           
-                          <div className="dropdown-group">
-                            <h4>Application Development</h4>
-                            <ul>
-                              <li>
-                                <Link 
-                                  href="/development"
-                                  onClick={() => setActiveDropdown(null)}
-                                >
-                                  <span className="dropdown-icon-wrapper">
-                                    <FaDesktop />
-                                  </span>
-                                  <div className="dropdown-content">
-                                    <span className="dropdown-title">Web Application</span>
-                                    <span className="dropdown-description">Dynamic web solutions</span>
-                                  </div>
-                                </Link>
-                              </li>
-                              <li>
-                                <Link 
-                                  href="/development"
-                                  onClick={() => setActiveDropdown(null)}
-                                >
-                                  <span className="dropdown-icon-wrapper">
-                                    <FaRegLightbulb />
-                                  </span>
-                                  <div className="dropdown-content">
-                                    <span className="dropdown-title">Custom Application</span>
-                                    <span className="dropdown-description">Bespoke application solutions</span>
-                                  </div>
-                                </Link>
-                              </li>
-                              <li>
-                                <Link 
-                                  href="/development"
-                                  onClick={() => setActiveDropdown(null)}
-                                >
-                                  <span className="dropdown-icon-wrapper">
-                                    <FaDatabase />
-                                  </span>
-                                  <div className="dropdown-content">
-                                    <span className="dropdown-title">Application Integration</span>
-                                    <span className="dropdown-description">Seamless system connections</span>
-                                  </div>
-                                </Link>
-                              </li>
-                              <li>
-                                <Link 
-                                  href="/development"
-                                  onClick={() => setActiveDropdown(null)}
-                                >
-                                  <span className="dropdown-icon-wrapper">
-                                    <FaCloud />
-                                  </span>
-                                  <div className="dropdown-content">
-                                    <span className="dropdown-title">Ecommerce Application</span>
-                                    <span className="dropdown-description">Online shopping solutions</span>
-                                  </div>
-                                </Link>
-                              </li>
-                            </ul>
-                          </div>
-                          
-                          <div className="dropdown-group">
-                            <h4>Specialized Development</h4>
-                            <ul>
-                              <li>
-                                <Link 
-                                  href="/development"
-                                  onClick={() => setActiveDropdown(null)}
-                                >
-                                  <span className="dropdown-icon-wrapper">
-                                    <FaMobileAlt />
-                                  </span>
-                                  <div className="dropdown-content">
-                                    <span className="dropdown-title">Mobile App Development</span>
-                                    <span className="dropdown-description">iOS and Android solutions</span>
-                                  </div>
-                                </Link>
-                              </li>
-                              <li>
-                                <Link 
-                                  href="/development"
-                                  onClick={() => setActiveDropdown(null)}
-                                >
-                                  <span className="dropdown-icon-wrapper">
-                                    <FaCode />
-                                  </span>
-                                  <div className="dropdown-content">
-                                    <span className="dropdown-title">Full Stack Development</span>
-                                    <span className="dropdown-description">End-to-end development</span>
-                                  </div>
-                                </Link>
-                              </li>
-                              <li>
-                                <Link 
-                                  href="/development"
-                                  onClick={() => setActiveDropdown(null)}
-                                >
-                                  <span className="dropdown-icon-wrapper">
-                                    <FaRobot />
-                                  </span>
-                                  <div className="dropdown-content">
-                                    <span className="dropdown-title">Artificial Intelligence</span>
-                                    <span className="dropdown-description">Smart AI-powered solutions</span>
-                                  </div>
-                                </Link>
-                              </li>
-                            </ul>
-                          </div>
-                          
-                          <div className="dropdown-group">
-                            <h4>Services</h4>
-                            <ul>
-                              <li>
-                                <Link 
-                                  href="/development"
-                                  onClick={() => setActiveDropdown(null)}
-                                >
-                                  <span className="dropdown-icon-wrapper">
-                                    <FaPaintBrush />
-                                  </span>
-                                  <div className="dropdown-content">
-                                    <span className="dropdown-title">UX/UI Design</span>
-                                    <span className="dropdown-description">User-centered design</span>
-                                  </div>
-                                </Link>
-                              </li>
-                              <li>
-                                <Link 
-                                  href="/development"
-                                  onClick={() => setActiveDropdown(null)}
-                                >
-                                  <span className="dropdown-icon-wrapper">
-                                    <FaCogs />
-                                  </span>
-                                  <div className="dropdown-content">
-                                    <span className="dropdown-title">DevOps</span>
-                                    <span className="dropdown-description">Continuous integration/delivery</span>
-                                  </div>
-                                </Link>
-                              </li>
-                              <li>
-                                <Link 
-                                  href="/development"
-                                  onClick={() => setActiveDropdown(null)}
-                                >
-                                  <span className="dropdown-icon-wrapper">
-                                    <FaClipboardCheck />
-                                  </span>
-                                  <div className="dropdown-content">
-                                    <span className="dropdown-title">QA and Testing</span>
-                                    <span className="dropdown-description">Quality assurance services</span>
-                                  </div>
-                                </Link>
-                              </li>
-                              <li>
-                                <Link 
-                                  href="/contact"
-                                  onClick={() => setActiveDropdown(null)}
-                                >
-                                  <span className="dropdown-icon-wrapper">
-                                    <FaComments />
-                                  </span>
-                                  <div className="dropdown-content">
-                                    <span className="dropdown-title">Let's talk</span>
-                                    <span className="dropdown-description">Discuss your project needs</span>
-                                  </div>
-                  </Link>
-                              </li>
-                            </ul>
+                          <div className="mega-menu-cta">
+                            <div className="cta-card">
+                              <div className="cta-icon">
+                                <FaRegLightbulb />
+                              </div>
+                              <h3>Need a custom solution?</h3>
+                              <p>Let our experts create the perfect tech solution tailored specifically for your business needs and growth objectives.</p>
+                              <Link 
+                                href="/contact"
+                                onClick={() => setActiveDropdown(null)}
+                                className="cta-button"
+                              >
+                                <span>Free Consultation</span>
+                                <FaChevronRight className="cta-arrow" />
+                              </Link>
+                            </div>
                           </div>
                         </div>
                       </motion.div>
